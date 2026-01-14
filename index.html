@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Display Name</title>
+  <style>
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; display:flex; align-items:center; justify-content:center; height:100vh; margin:0; }
+    .card { text-align:center; padding:2rem; border:1px solid #eee; border-radius:8px; box-shadow:0 6px 18px rgba(0,0,0,0.06); }
+    input { padding:0.5rem; font-size:1rem; margin-top:0.5rem; }
+    button { margin-left:0.5rem; padding:0.5rem 0.75rem; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1 id="greeting">Hello, Your Name!</h1>
+    <div>
+      <input id="nameInput" placeholder="Enter a name" />
+      <button id="showBtn">Show</button>
+    </div>
+  </div>
+
+  <script>
+    // Default name (you can change this)
+    const defaultName = "Govindi Tharshika";
+    const greeting = document.getElementById('greeting');
+    const nameInput = document.getElementById('nameInput');
+    const showBtn = document.getElementById('showBtn');
+
+    function showName(name) {
+      greeting.textContent = `Hello, ${name}!`;
+    }
+
+    // Initialize
+    showName(defaultName);
+
+    showBtn.addEventListener('click', () => {
+      const name = (nameInput.value || defaultName).trim();
+      showName(name);
+    });
+
+    nameInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') showBtn.click();
+    });
+  </script>
+</body>
+</html>
